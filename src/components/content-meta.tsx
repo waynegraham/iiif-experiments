@@ -14,7 +14,7 @@ export function ContentMeta({ date, tags, type }: ContentMetaProps) {
   });
 
   return (
-    <div className="flex flex-wrap gap-4 text-sm text-slate-500 dark:text-slate-400">
+    <div className="flex flex-wrap gap-4 text-sm text-[rgb(var(--muted))]">
       <span>{formattedDate}</span>
       <span className="capitalize">{type}</span>
       <span className="flex flex-wrap items-center gap-2">
@@ -22,7 +22,7 @@ export function ContentMeta({ date, tags, type }: ContentMetaProps) {
           <Link
             key={tag}
             href={`/tags/${encodeURIComponent(tag)}`}
-            className="rounded-full border border-slate-200/80 px-3 py-1 text-xs font-medium text-slate-600 transition hover:border-slate-300 hover:text-slate-900 dark:border-slate-700/80 dark:text-slate-300 dark:hover:border-slate-600 dark:hover:text-white"
+            className="border border-[rgb(var(--border)_/_0.45)] px-3 py-1 text-[0.68rem] uppercase tracking-[0.2em] text-[rgb(var(--foreground))] transition hover:border-[rgb(var(--accent)_/_0.55)] hover:text-[rgb(var(--accent))]"
           >
             {tag}
           </Link>

@@ -4,17 +4,20 @@ import { ThemeToggle } from "./theme-toggle";
 
 export function Header() {
   return (
-    <header className="border-b border-slate-200/80 bg-background/90 py-6 backdrop-blur dark:border-slate-800 dark:bg-slate-950/90">
-      <div className="mx-auto flex max-w-6xl flex-col gap-5 px-4 sm:px-6 md:flex-row md:items-center md:justify-between">
-        <div>
-          <Link href="/" className="text-lg font-semibold tracking-tight text-slate-950 transition hover:text-slate-900 dark:text-white dark:hover:text-slate-100">
+    <header className="sticky top-0 z-30 border-b border-[rgb(var(--border)_/_0.45)] bg-[rgb(var(--background)_/_0.84)] py-5 backdrop-blur-xl">
+      <div className="mx-auto flex max-w-7xl flex-col gap-5 px-4 sm:px-6 lg:flex-row lg:items-end lg:justify-between lg:px-8">
+        <div className="max-w-xl">
+          <p className="text-[0.68rem] uppercase tracking-[0.38em] text-[rgb(var(--muted))]">
+            Museum Notes / IIIF
+          </p>
+          <Link href="/" className="mt-2 inline-block font-display text-3xl leading-none tracking-[-0.04em] text-[rgb(var(--foreground))] transition hover:text-[rgb(var(--accent))] sm:text-4xl">
             IIIF Experiments
           </Link>
-          <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
-            Publication-first experiments, reusable UI, and editorial writing.
+          <p className="mt-3 text-sm leading-6 text-[rgb(var(--muted))]">
+            Publication-first experiments, reusable UI, and editorial writing shaped like an exhibition program rather than a product surface.
           </p>
         </div>
-        <div className="flex flex-wrap items-center gap-4">
+        <div className="flex flex-wrap items-center gap-4 lg:justify-end">
           <Navigation />
           <ThemeToggle />
         </div>

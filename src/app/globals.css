@@ -2,32 +2,36 @@
 
 :root {
   color-scheme: light;
-  --background: 255 255 255;
-  --foreground: 23 23 23;
-  --surface: 249 250 251;
-  --border: 226 232 240;
-  --muted: 100 116 139;
-  --accent: 14 165 233;
-  --accent-foreground: 255 255 255;
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --background: 245 241 233;
+  --foreground: 34 28 24;
+  --surface: 252 248 241;
+  --surface-strong: 238 231 220;
+  --border: 194 182 167;
+  --muted: 111 98 85;
+  --accent: 138 77 52;
+  --accent-foreground: 250 245 238;
+  --font-sans: var(--font-work-sans), "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: "Aptos Mono", "Cascadia Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --font-display: var(--font-noto-sans), "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     color-scheme: dark;
-    --background: 15 23 42;
-    --foreground: 226 232 240;
-    --surface: 10 14 23;
-    --border: 71 85 105;
-    --muted: 148 163 184;
-    --accent: 56 189 248;
-    --accent-foreground: 15 23 42;
+    --background: 20 19 18;
+    --foreground: 233 225 214;
+    --surface: 30 28 26;
+    --surface-strong: 46 42 39;
+    --border: 92 82 74;
+    --muted: 170 157 143;
+    --accent: 212 155 120;
+    --accent-foreground: 33 26 21;
   }
 }
 
 html {
   scroll-behavior: smooth;
+  background: rgb(var(--background));
 }
 
 body {
@@ -37,10 +41,14 @@ body {
   color: rgb(var(--foreground));
   font-family: var(--font-sans), system-ui, sans-serif;
   text-rendering: optimizeLegibility;
+  background-image:
+    radial-gradient(circle at top left, rgb(var(--surface-strong) / 0.9), transparent 28rem),
+    radial-gradient(circle at 85% 12%, rgb(var(--accent) / 0.1), transparent 22rem),
+    linear-gradient(180deg, rgb(var(--surface) / 0.78), rgb(var(--background)));
 }
 
 ::selection {
-  background: rgba(var(--accent), 0.18);
+  background: rgb(var(--accent) / 0.22);
   color: inherit;
 }
 
@@ -63,7 +71,10 @@ textarea {
 .prose h2,
 .prose h3,
 .prose h4 {
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.04;
 }
 
 .prose p {
@@ -74,6 +85,7 @@ textarea {
 .prose a {
   color: rgb(var(--accent));
   text-decoration: underline;
+  text-underline-offset: 0.18em;
 }
 
 .prose code {
@@ -85,18 +97,23 @@ textarea {
 }
 
 .prose pre {
-  background: rgb(15 23 42 / 0.9);
+  background: rgb(var(--surface-strong) / 0.95);
+  border: 1px solid rgb(var(--border) / 0.45);
   border-radius: 1rem;
-  color: #e2e8f0;
+  color: rgb(var(--foreground));
   overflow-x: auto;
   padding: 1.25rem;
 }
 
 .prose blockquote {
-  border-left: 0.25rem solid rgba(var(--accent), 0.4);
+  border-left: 0.25rem solid rgb(var(--accent) / 0.5);
   margin: 1.5rem 0;
   padding-left: 1rem;
   color: rgb(var(--muted));
+}
+
+.font-display {
+  font-family: var(--font-display);
 }
 
 .dark {

@@ -90,11 +90,11 @@ export async function getContentBySlug(type: ContentType, slug: string) {
 
   const source = fs.readFileSync(sourcePath, "utf8");
   const { data } = parseFrontMatter(source);
-  const module = await import(`../../content/${type}/${slug}.mdx`);
+  const contentModule = await import(`../../content/${type}/${slug}.mdx`);
 
   return {
     frontMatter: buildContentItem(type, slug, data),
-    Content: module.default,
+    Content: contentModule.default,
   };
 }
 

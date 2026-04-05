@@ -9,19 +9,16 @@ export async function generateStaticParams() {
 }
 
 export default async function WritingPostPage({ params }: { params: { slug: string } }) {
-  try {
-    const { frontMatter, Content } = await getContentBySlug("writing", params.slug);
+  const entry = await getContentBySlug("writing", params.slug).catch(() => notFound());
+  const { frontMatter, Content } = entry;
 
-    return (
-      <article className="mx-auto max-w-4xl space-y-10">
-        <ContentHeader title={frontMatter.title} description={frontMatter.description} eyebrow="Writing" />
-        <ContentMeta date={frontMatter.date} tags={frontMatter.tags} type={frontMatter.type} />
-        <div className="prose max-w-none text-slate-700 dark:text-slate-200">
-          <Content components={mdxComponents} />
-        </div>
-      </article>
-    );
-  } catch {
-    notFound();
-  }
+  return (
+    <article className="mx-auto max-w-4xl space-y-10">
+      <ContentHeader title={frontMatter.title} description={frontMatter.description} eyebrow="Writing" />
+      <ContentMeta date={frontMatter.date} tags={frontMatter.tags} type={frontMatter.type} />
+      <div className="prose max-w-none text-slate-700 dark:text-slate-200">
+        <Content components={mdxComponents} />
+      </div>
+    </article>
+  );
 }
