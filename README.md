@@ -1,36 +1,97 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# IIIF Experiments
 
-## Getting Started
+A publication-first IIIF site scaffold built with Next.js App Router, TypeScript, Tailwind CSS, and MDX.
 
-First, run the development server:
+This project is designed for narrative experiments, reusable component documentation, and editorial writing. Content is authored in repository MDX files and rendered statically for Cloudflare-compatible deployment.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Stack
+
+- Next.js App Router
+- TypeScript
+- Tailwind CSS
+- MDX via `@next/mdx`
+- Static-first rendering
+
+## Project structure
+
+- `src/app/` — route and layout definitions
+- `src/components/` — shared UI components and MDX component mapping
+- `src/lib/` — content loading utilities and shared types
+- `content/` — MDX content for experiments, components, and writing
+
+## Content routes
+
+The site includes the following public routes:
+
+- `/`
+- `/experiments`
+- `/experiments/[slug]`
+- `/components`
+- `/components/[slug]`
+- `/writing`
+- `/writing/[slug]`
+- `/tags`
+- `/tags/[tag]`
+
+## Content authoring
+
+Add content as MDX files under `content/experiments`, `content/components`, or `content/writing`.
+
+Each file should start with frontmatter, for example:
+
+```mdx
+---
+title: "Example Experiment"
+slug: "example-experiment"
+description: "Short summary of the experiment."
+date: "2026-04-05"
+tags: ["IIIF", "interaction"]
+featured: true
+---
+
+# Example Experiment
+
+This is the body content.
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Imported React components can be used directly in MDX pages.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Key utilities
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `getAllContent(type)` — list all content items for a type
+- `getContentBySlug(type, slug)` — load a single MDX page by slug
+- `getFeaturedContent()` — collect featured items across types
+- `getAllTags()` — collect tags used across the site
 
-## Learn More
+## Development
 
-To learn more about Next.js, take a look at the following resources:
+Install dependencies and run the project locally:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+pnpm install
+pnpm dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Open http://localhost:3000.
 
-## Deploy on Vercel
+## Build
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+pnpm exec next build
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Theming and MDX
+
+- Theme toggling is available via `src/components/theme-toggle.tsx`.
+- MDX components are mapped in `src/components/mdx-components.tsx`.
+- Shared MDX components include `CodeBlock`, `DemoFrame`, and `InteractiveDemo`.
+
+## Deployment
+
+This scaffold is intended for static-friendly deployment and is compatible with Cloudflare Pages. The build output is static HTML/JS using Next.js App Router conventions.
+
+## Notes
+
+- No CMS or search is included.
+- The site is intentionally editorial, not a generic blog.
+- The immersive route group is used for experiments that need reduced UI chrome.
