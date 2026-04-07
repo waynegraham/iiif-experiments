@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Noto_Sans, Work_Sans } from "next/font/google";
+import { Noto_Serif, Work_Sans } from "next/font/google";
 import "./globals.css";
 
-const notoSans = Noto_Sans({
-  variable: "--font-noto-sans",
+const notoSerif = Noto_Serif({
+  variable: "--font-noto-serif",
   subsets: ["latin"],
 });
 
@@ -23,8 +23,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${notoSans.variable} ${workSans.variable} h-full antialiased`}>
-      <body className="min-h-full bg-background text-foreground font-sans antialiased">
+    <html lang="en" className={`${notoSerif.variable} ${workSans.variable} h-full antialiased`}>
+      <body className="min-h-full bg-background text-foreground antialiased">
         {children}
       </body>
     </html>

@@ -2,18 +2,24 @@ import Link from "next/link";
 
 export function Navigation() {
   return (
-    <nav className="flex flex-wrap items-center gap-x-5 gap-y-2 border border-[rgb(var(--border)_/_0.45)] bg-[rgb(var(--surface)_/_0.72)] px-4 py-3 text-[0.72rem] uppercase tracking-[0.28em] text-[rgb(var(--muted))]">
-      <Link href="/experiments" className="transition hover:text-[rgb(var(--foreground))]">
-        Experiments
+    <nav className="hidden items-center gap-10 md:flex">
+      <Link
+        href="/"
+        className="border-b border-[rgb(var(--foreground))] pb-1 font-display text-[0.78rem] uppercase tracking-[0.3em] text-[rgb(var(--foreground))]"
+      >
+        Home
       </Link>
-      <Link href="/components" className="transition hover:text-[rgb(var(--foreground))]">
-        Components
+      <Link
+        href="/experiments"
+        className="font-display text-[0.78rem] uppercase tracking-[0.3em] text-[rgb(var(--foreground)_/_0.62)] transition hover:text-[rgb(var(--accent))]"
+      >
+        Collection
       </Link>
-      <Link href="/writing" className="transition hover:text-[rgb(var(--foreground))]">
-        Writing
-      </Link>
-      <Link href="/tags" className="transition hover:text-[rgb(var(--foreground))]">
-        Tags
+      <Link
+        href="/writing"
+        className="font-display text-[0.78rem] uppercase tracking-[0.3em] text-[rgb(var(--foreground)_/_0.62)] transition hover:text-[rgb(var(--accent))]"
+      >
+        About
       </Link>
     </nav>
   );

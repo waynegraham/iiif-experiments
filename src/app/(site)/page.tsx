@@ -23,47 +23,85 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="space-y-16 lg:space-y-20">
+    <div className="space-y-24 lg:space-y-32">
       <Hero
-        title="IIIF experiments shaped like an exhibition program."
-        description="A publication-first system for narrative experiments, reusable components, and writing about media-rich workflows with the pacing, hierarchy, and atmosphere of museum and gallery websites."
+        title="The modern gallery framework for IIIF experiments."
+        description="A publication-first system for narrative experiments, reusable components, and writing about media-rich workflows with the pacing, hierarchy, and atmosphere of a quiet institutional site."
+        label="Vol. I / Digital Presentation"
       />
 
-      <section className="grid gap-4 border-y border-[rgb(var(--border)_/_0.45)] py-8 lg:grid-cols-3">
-        {sections.map((section, index) => (
-          <div
-            key={section.title}
-            className="grid gap-3 py-2 lg:border-l lg:border-[rgb(var(--border)_/_0.45)] lg:px-6 lg:py-0 first:lg:border-l-0"
+      <section className="flex flex-col gap-5 bg-[rgb(var(--surface))] px-6 py-8 sm:px-8 lg:flex-row lg:items-center lg:justify-between lg:px-12">
+        <div className="flex flex-wrap gap-4">
+          <a
+            href="#featured-selection"
+            className="bg-[rgb(var(--foreground))] px-8 py-4 text-[0.72rem] uppercase tracking-[0.32em] text-[rgb(var(--surface))] transition hover:bg-[rgb(var(--accent))]"
           >
-            <p className="text-[0.68rem] uppercase tracking-[0.32em] text-[rgb(var(--muted))]">
-              0{index + 1}
-            </p>
-            <h2 className="font-display text-3xl tracking-[-0.04em] text-[rgb(var(--foreground))]">
-              {section.title}
-            </h2>
-            <p className="max-w-sm text-sm leading-7 text-[rgb(var(--muted))]">
-              {section.description}
-            </p>
-          </div>
-        ))}
+            Explore Archive
+          </a>
+          <a
+            href="/writing"
+            className="border-b border-[rgb(var(--foreground)_/_0.2)] px-1 py-4 text-[0.72rem] uppercase tracking-[0.32em] text-[rgb(var(--foreground))] transition hover:border-[rgb(var(--accent))] hover:text-[rgb(var(--accent))]"
+          >
+            Read Writing
+          </a>
+        </div>
+        <p className="max-w-2xl text-sm leading-8 text-[rgb(var(--muted))]">
+          The shell is designed to preserve the artifact-first tone of IIIF work while staying usable without motion-heavy behavior.
+        </p>
       </section>
 
-      <section className="space-y-6">
-        <div className="flex flex-col gap-3 border-b border-[rgb(var(--border)_/_0.45)] pb-5 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p className="text-[0.68rem] uppercase tracking-[0.34em] text-[rgb(var(--muted))]">
-              Featured Selection
-            </p>
-            <h2 className="mt-3 font-display text-4xl leading-none tracking-[-0.05em] text-[rgb(var(--foreground))]">
-              Current entries
-            </h2>
-          </div>
-          <p className="max-w-xl text-sm leading-7 text-[rgb(var(--muted))]">
-            Featured items carry the public voice of the site first: cinematic when needed, restrained when not, and always readable without extra effects.
+      <section className="mx-auto grid max-w-5xl gap-8 px-4 text-center sm:px-0">
+        <p className="editorial-kicker text-[rgb(var(--accent))]">Introduction</p>
+        <h2 className="font-display text-4xl leading-[1.02] tracking-[-0.05em] text-[rgb(var(--foreground))] sm:text-6xl">
+          Digital artifacts deserve the same reverence as their physical counterparts.
+        </h2>
+        <p className="mx-auto max-w-2xl text-base leading-9 text-[rgb(var(--muted))] sm:text-lg">
+          The interface should feel like a silent curator. It should clarify sequence, provenance, and scale without crowding the object or flattening the reading experience into generic product UI.
+        </p>
+      </section>
+
+      <section className="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.6fr)] lg:items-start">
+        <div className="space-y-5 lg:sticky lg:top-32">
+          <p className="editorial-kicker text-[rgb(var(--accent))]">Collections</p>
+          <h2 className="max-w-sm font-display text-4xl leading-[0.98] tracking-[-0.05em] text-[rgb(var(--foreground))] sm:text-5xl">
+            Exhibition highlights across the publication.
+          </h2>
+          <p className="max-w-md text-sm leading-8 text-[rgb(var(--muted))]">
+            Experiments lead the system, while components and writing stay close at hand as supporting rooms in the same exhibition.
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-8 sm:grid-cols-2 xl:grid-cols-3">
+          {sections.map((section, index) => (
+            <div key={section.title} className="bg-[rgb(var(--surface-strong))] px-6 py-8">
+              <p className="editorial-kicker text-[rgb(var(--accent))]">0{index + 1}</p>
+              <h3 className="mt-5 font-display text-3xl tracking-[-0.04em] text-[rgb(var(--foreground))]">
+                {section.title}
+              </h3>
+              <p className="mt-4 max-w-sm text-sm leading-8 text-[rgb(var(--muted))]">
+                {section.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="featured-selection" className="space-y-8">
+        <div className="grid gap-5 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.3fr)] lg:items-end">
+          <div>
+            <p className="editorial-kicker text-[rgb(var(--accent))]">
+              Featured Selection
+            </p>
+            <h2 className="mt-4 font-display text-4xl leading-none tracking-[-0.05em] text-[rgb(var(--foreground))] sm:text-5xl">
+              Current entries
+            </h2>
+          </div>
+          <p className="max-w-2xl text-sm leading-8 text-[rgb(var(--muted))]">
+            Featured items carry the public voice of the site first: cinematic when needed, restrained when not, and always readable without theatrical interface behavior.
+          </p>
+        </div>
+
+        <div className="grid gap-10 md:grid-cols-2 xl:grid-cols-3">
           {featured.map((item) => (
             <Card
               key={`${item.type}-${item.slug}`}
@@ -76,22 +114,22 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="grid gap-8 border border-[rgb(var(--border)_/_0.45)] bg-[rgb(var(--surface)_/_0.68)] px-6 py-8 sm:px-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:px-10">
-        <div>
-          <p className="text-[0.68rem] uppercase tracking-[0.34em] text-[rgb(var(--muted))]">
-            Editorial Structure
+      <section className="bg-[rgb(var(--foreground))] px-6 py-14 text-[rgb(var(--surface))] sm:px-8 lg:px-12 lg:py-20">
+        <div className="mx-auto grid max-w-4xl gap-6 text-center">
+          <p className="font-display text-2xl italic text-[rgb(var(--accent))]">
+            Stay informed on new acquisitions.
           </p>
-          <h2 className="mt-4 max-w-2xl font-display text-4xl leading-[0.95] tracking-[-0.05em] text-[rgb(var(--foreground))] sm:text-5xl">
-            A shell designed to frame narrative work, not distract from it.
+          <h2 className="font-display text-4xl leading-[0.96] tracking-[-0.05em] sm:text-6xl">
+            Join the Curator&apos;s Registry.
           </h2>
-        </div>
-        <div className="space-y-4 text-sm leading-8 text-[rgb(var(--muted))]">
-          <p>
-            Experiments remain prose-first and can still host interactive sequences, maps, viewers, or immersive breakouts when the story demands it.
-          </p>
-          <p>
-            Components stay reusable and documented. Writing stays concise, legible, and publication-ready. The theme gives all three a shared institutional tone without flattening them into one template.
-          </p>
+          <div className="mx-auto mt-4 flex w-full max-w-xl items-end gap-4 border-b border-[rgb(255_255_255_/_0.22)] pb-3">
+            <span className="text-[0.72rem] uppercase tracking-[0.34em] text-[rgb(255_255_255_/_0.42)]">
+              Enter your email
+            </span>
+            <span className="ml-auto text-[0.72rem] uppercase tracking-[0.34em] text-[rgb(var(--accent))]">
+              Submit
+            </span>
+          </div>
         </div>
       </section>
     </div>

@@ -2,30 +2,36 @@
 
 :root {
   color-scheme: light;
-  --background: 245 241 233;
-  --foreground: 34 28 24;
-  --surface: 252 248 241;
-  --surface-strong: 238 231 220;
-  --border: 194 182 167;
-  --muted: 111 98 85;
-  --accent: 138 77 52;
-  --accent-foreground: 250 245 238;
+  --background: 250 249 247;
+  --foreground: 26 28 27;
+  --surface: 255 255 255;
+  --surface-strong: 244 243 241;
+  --surface-deep: 233 232 230;
+  --border: 195 199 199;
+  --muted: 67 72 72;
+  --accent: 113 91 49;
+  --accent-foreground: 250 249 247;
+  --hero: 13 23 31;
+  --hero-foreground: 248 245 240;
   --font-sans: var(--font-work-sans), "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-mono: "Aptos Mono", "Cascadia Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-  --font-display: var(--font-noto-sans), "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-display: var(--font-noto-serif), "Times New Roman", Georgia, serif;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     color-scheme: dark;
-    --background: 20 19 18;
-    --foreground: 233 225 214;
-    --surface: 30 28 26;
-    --surface-strong: 46 42 39;
-    --border: 92 82 74;
-    --muted: 170 157 143;
-    --accent: 212 155 120;
-    --accent-foreground: 33 26 21;
+    --background: 29 29 26;
+    --foreground: 241 241 239;
+    --surface: 47 49 48;
+    --surface-strong: 35 36 35;
+    --surface-deep: 50 50 47;
+    --border: 115 120 120;
+    --muted: 200 199 194;
+    --accent: 253 223 170;
+    --accent-foreground: 38 25 0;
+    --hero: 14 19 24;
+    --hero-foreground: 250 249 247;
   }
 }
 
@@ -42,9 +48,18 @@ body {
   font-family: var(--font-sans), system-ui, sans-serif;
   text-rendering: optimizeLegibility;
   background-image:
-    radial-gradient(circle at top left, rgb(var(--surface-strong) / 0.9), transparent 28rem),
-    radial-gradient(circle at 85% 12%, rgb(var(--accent) / 0.1), transparent 22rem),
-    linear-gradient(180deg, rgb(var(--surface) / 0.78), rgb(var(--background)));
+    radial-gradient(circle at top left, rgb(var(--surface-strong) / 0.92), transparent 24rem),
+    linear-gradient(180deg, rgb(var(--surface-strong) / 0.38), transparent 26rem),
+    linear-gradient(180deg, rgb(var(--background)), rgb(var(--background)));
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display), "Times New Roman", Georgia, serif;
 }
 
 ::selection {
@@ -72,14 +87,14 @@ textarea {
 .prose h3,
 .prose h4 {
   font-family: var(--font-display);
-  font-weight: 600;
-  letter-spacing: -0.03em;
-  line-height: 1.04;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 0.98;
 }
 
 .prose p {
   color: rgb(var(--muted));
-  line-height: 1.75;
+  line-height: 1.9;
 }
 
 .prose a {
@@ -90,7 +105,6 @@ textarea {
 
 .prose code {
   background: rgba(var(--accent), 0.08);
-  border-radius: 0.5rem;
   color: inherit;
   font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   padding: 0.15em 0.3em;
@@ -98,22 +112,30 @@ textarea {
 
 .prose pre {
   background: rgb(var(--surface-strong) / 0.95);
-  border: 1px solid rgb(var(--border) / 0.45);
-  border-radius: 1rem;
+  border: 1px solid rgb(var(--border) / 0.15);
   color: rgb(var(--foreground));
   overflow-x: auto;
   padding: 1.25rem;
 }
 
 .prose blockquote {
-  border-left: 0.25rem solid rgb(var(--accent) / 0.5);
+  border-left: 0.2rem solid rgb(var(--accent) / 0.45);
   margin: 1.5rem 0;
   padding-left: 1rem;
-  color: rgb(var(--muted));
+  color: rgb(var(--accent));
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  line-height: 1.65;
 }
 
 .font-display {
-  font-family: var(--font-display);
+  font-family: var(--font-display), "Times New Roman", Georgia, serif;
+}
+
+.editorial-kicker {
+  font-size: 0.7rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
 }
 
 .dark {

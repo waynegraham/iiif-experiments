@@ -22,7 +22,7 @@ export function ContentMeta({ date, tags, type }: ContentMetaProps) {
           <Link
             key={tag}
             href={`/tags/${encodeURIComponent(tag)}`}
-            className="border border-[rgb(var(--border)_/_0.45)] px-3 py-1 text-[0.68rem] uppercase tracking-[0.2em] text-[rgb(var(--foreground))] transition hover:border-[rgb(var(--accent)_/_0.55)] hover:text-[rgb(var(--accent))]"
+            className="bg-[rgb(var(--surface-strong))] px-3 py-1 text-[0.68rem] uppercase tracking-[0.24em] text-[rgb(var(--foreground))] transition hover:bg-[rgb(var(--surface-deep))] hover:text-[rgb(var(--accent))]"
           >
             {tag}
           </Link>

@@ -29,11 +29,11 @@ export function ThemeToggle() {
   return (
     <button
       type="button"
-      className="border border-[rgb(var(--border)_/_0.45)] bg-[rgb(var(--surface)_/_0.9)] px-4 py-3 text-[0.72rem] uppercase tracking-[0.28em] text-[rgb(var(--foreground))] transition hover:border-[rgb(var(--accent)_/_0.6)] hover:text-[rgb(var(--accent))]"
+      className="border border-[rgb(var(--foreground)_/_0.12)] bg-transparent px-3 py-2 text-[0.62rem] uppercase tracking-[0.34em] text-[rgb(var(--foreground)_/_0.72)] transition hover:border-[rgb(var(--accent)_/_0.32)] hover:text-[rgb(var(--accent))]"
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       aria-label="Toggle theme"
     >
-      Theme
+      {theme === "dark" ? "Light" : "Dark"}
     </button>
   );
 }
